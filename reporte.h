@@ -74,12 +74,15 @@ void Reporte<T>::imprimeTiendas(vector<T> &v) {
 
 template <class T>
 void Reporte<T>::tiendasPorVentas(vector<T> &v) {
-    for (int i = v.size() - 1; i > 0; i--) {
-		for (int j = 0; j < i; j++) {
-			if (v[j].get_ventas() > v[j + 1].get_ventas()) {
-				swap(v, j, j + 1);
+  int gap = v.size() / 2;
+
+	while (gap > 0) {
+		for(int i = gap; i < v.size(); i++){
+			for(int j = i; j >= gap && v[j].get_ventas() < v[j-gap].get_ventas(); j = j-gap){
+				swap(v,j,j-gap);
 			}
 		}
+		gap = gap / 2;
 	}
 }
 
