@@ -1,5 +1,5 @@
 /*
-* Proyecto Archivo de Casos
+* Proyecto Archivo de Tiendas Starbucks
 * Paulina Almada Martínez
 * A01710029
 * 9/18/2023
@@ -20,14 +20,12 @@
 
 using namespace std;
 
-const int MAX = 1000; //constante de tamaño de arreglo
-
 template <class T>
 class Reporte {
     //Variables de instancia
     private:
-    Tienda * tienda[MAX]; //apuntador para objetos Tienda
-    int index;
+    vector<T> tiendas;
+    int index = 2;
     void swap(vector<T> &v, int i, int j);
 
     public:
@@ -67,9 +65,9 @@ void Reporte<T>::swap(vector<T> &v, int i, int j) {
  */
 template <class T>
 void Reporte<T>::imprimeTiendas(vector<T> &v) {
-  //Ciclo que recorre el arreglo e imprime cada objeto.
-  for (int i = 0; i < index; i++)
+  for(int i = 0; i < v.size(); i++){
     cout << v[i].toString();
+  }
 }
 
 template <class T>
@@ -87,9 +85,9 @@ void Reporte<T>::tiendasPorVentas(vector<T> &v) {
 }
 
 /**
- * agregaTienda crea un objeto Tienda y lo agrega al arreglo tienda[]
+ * agregaTienda crea un objeto Tienda y lo agrega al vector tiendas
  *
- * crea un objeto Tienda y lo agrega a arreglo de tiendas usando
+ * crea un objeto Tienda y lo agrega al vector de tiendas usando
  * como indice el número de index, el cuál después incrementa en 1.
  *
  * @param 
@@ -97,8 +95,8 @@ void Reporte<T>::tiendasPorVentas(vector<T> &v) {
  */
 template <class T>
 void Reporte<T>::agregaTienda(string nombre, int ventas, float ganancia, float conexion, int ica) {
-    //new crea el objeto para usar polimorfismo
-    tienda[index] = new Tienda(index, nombre, ventas, ganancia, conexion, ica);
+    Tienda temp_new = Tienda(index, nombre, ventas, ganancia, conexion, ica);
+    tiendas.push_back(temp_new);
     index++;
 }
 

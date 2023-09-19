@@ -27,7 +27,8 @@ string arrayToString(const vector<T> &v) {
 	for (int i = 1; i < v.size(); i++) {
 		aux << ", " << v[i];
 	}
-	aux << "]";
+	
+    aux << "]";
 	return aux.str();
 }
 
@@ -108,6 +109,4 @@ int main(int argc, char * argv[]) {
         }
     }
 }
-
-
 
