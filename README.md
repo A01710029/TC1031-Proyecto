@@ -15,4 +15,4 @@ Decidí utilizar un Shell Sort para este programa ya que es relativamente rápid
 
 ### Hace un análisis de complejidad correcto y completo para los algoritmos de ordenamiento usados en el programa.
 
-El Shell Sort tiene una complejidad de tiempo promedio de O(nlog n), ya que tiene dos ciclos, pero el ciclo exterior sirve como el límite del ciclo interior. Además, la brecha que se analiza se reduce a la mitad cada vez que corre el algoritmo. Shell Sort iene una complejidad de espacio de O(1).
+El Shell Sort tiene una complejidad de tiempo promedio de O(nlog n), ya que tiene dos ciclos, pero el ciclo exterior sirve como el límite del ciclo interior. Además, la brecha que se analiza se reduce a la mitad cada vez que corre el algoritmo. Shell Sort tiene una complejidad de espacio de O(1).
