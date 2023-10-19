@@ -1,7 +1,7 @@
 # TC1031-Proyecto
 
 ## Archivo de Tiendas Starbucks
-Este proyecto se basa en el sistema de evaluación utilizado por Starbucks para sus distintas tiendas dentro de un mismo distrito, en el que consideran la cantidad de ventas por mes, la cantidad de ganancia generada por mes, el Índice de Conexión (un decimal entre 1 y 10 que representa la conexión con los clientes) y el Índice de ICA (un porcentaje completo entre 1 y 100 que representa la calidad de limpieza y seguridad). 
+Este proyecto se basa en el sistema de evaluación utilizado por Starbucks para sus distintas tiendas dentro de la República Mexicana, en el que consideran la cantidad de ventas por mes, la cantidad de ganancia generada por mes, el Índice de Conexión (un decimal entre 1 y 10 que representa la conexión con los clientes) y el Índice de ICA (un porcentaje completo entre 1 y 100 que representa la calidad de limpieza y seguridad). 
 
 El programa permite imprimir las tiendas guardadas, imprimir las tiendas basado en su número de ventas y agregar más tiendas. 
 
