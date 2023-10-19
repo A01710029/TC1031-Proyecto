@@ -14,13 +14,13 @@
 #include <sstream>
 
 using namespace std;
+
 //Declaración de clase Tienda
 class Tienda {
     //Variables de instancia
     protected:
-    //
-    int id;
     string nombre;
+    string estado; //estado de la república en el que está ubicada
     int ventas;
     float ganancia;
     float conexion; // números del 1 - 10
@@ -30,61 +30,74 @@ class Tienda {
     public:
     //Constructores
     //Default
-    Tienda(): id(0), nombre(""), ventas(0), ganancia(0.0), conexion (0.0), ica (0) {};
+    Tienda(): nombre(""), estado(""), ventas(0), ganancia(0.0), conexion (0.0), ica (0) {};
 
     //Con parametros
-    Tienda(int id_num, string nom, int ven, float gan, float conex, int ica_num): \
-    id(id_num), nombre(nom), ventas(ven), ganancia(gan), conexion(conex), ica(ica_num) {};
+    Tienda(string nom, string est, int ven, float gan, float conex, int ica_num): \
+    nombre(nom), estado(est), ventas(ven), ganancia(gan), conexion(conex), ica(ica_num) {};
 
     //Metodos
-        //Getters
-        int get_id(){
-            return id;
-        }
+    string get_nombre(){
+        return nombre;
+    }
 
-        string get_nombre(){
-            return nombre;
-        }
+    string get_estado(){
+        return estado;
+    }
 
-        int get_ventas(){
-            return ventas;
-        }
+    int get_ventas(){
+        return ventas;
+    }
 
-        float get_ganancia(){
-            return ganancia;
-        }
+    float get_ganancia(){
+        return ganancia;
+    }
 
-        float get_conexion(){
-            return conexion;
-        }
+    float get_conexion(){
+        return conexion;
+    }
 
-        int get_ica(){
-            return ica;
-        }
+    int get_ica(){
+        return ica;
+    }
 
-        //possibly add setters to modify (most) values ?
+    //possibly add setters to modify (most) values ?
 
-        //Otras funciones
-        string toString();
+    //Otras funciones
+    string toStringTotal();
+    string toStringNombres();
 };
 
 /**
-* toString convierte atributos a string
+* toStringTotal convierte todos los atributos a string
 * concatena todos los valores de los atributos en un string
 * para imprimirlos
 *
 * @param
 * @return string con los valores y texto
 */
-
-//sobreescritura de toString en Criminal (padre)
-string Tienda::toString(){
+string Tienda::toStringTotal(){
     stringstream aux;
     
-    aux << "Nombre: " << nombre << "\n" << "Ventas: " << ventas << "\n" \
+    aux << "Nombre: " << nombre << "\n" << "Estado: " << estado << "\n" << "Ventas: " << ventas << "\n" \
     "Ganancia: " << ganancia << "\n" << "Indice de Conexion: " << conexion << "\n" \
     "Indice de ICA: " << ica << "\n";
     
+    return aux.str();
+}
+
+/**
+ * toStringNombres convierte el nombre de la tienda a string
+ * para poder imprimirlos en una lista
+ * 
+ * @param
+ * @return string 
+*/
+string Tienda::toStringNombres(){
+    stringstream aux;
+
+    aux << nombre << "\n";
+
     return aux.str();
 }
 

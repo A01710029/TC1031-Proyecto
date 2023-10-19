@@ -10,27 +10,14 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include <vector>
 #include <cstring>
+#include <fstream>
 
 #include "tienda.h" //biblioteca con objetos Tienda
 #include "reporte.h" //biblioteca con operaciones del menu
+#include "dlist.h" //biblioteca con estructura de Double Linked List
 
 using namespace std;
-
-//para utilizar vectores
-template <class T>
-string arrayToString(const vector<T> &v) {
-	stringstream aux;
-
-	aux << "[" << v[0];
-	for (int i = 1; i < v.size(); i++) {
-		aux << ", " << v[i];
-	}
-	
-    aux << "]";
-	return aux.str();
-}
 
 //Menu
 void menu(){
@@ -46,23 +33,20 @@ void menu(){
 
 int main(int argc, char * argv[]) {
     //Declarar objeto Reporte para acceder operaciones
-    Reporte<Tienda> tiendasQro;
+    Reporte<Tienda> tiendasMex;
 
-    //Declarar vector para realizar operaciones
-    vector<Tienda> tiendasList;
-    
-    //Crear ejemplos
-    Tienda itesm_ex = Tienda(0, "ITESM", 253, 1627.87, 8.5, 97);
-    Tienda jurica_ex = Tienda(1, "Jurica", 620, 2151.31, 9.6, 82);
-    tiendasList.push_back(itesm_ex);
-    tiendasList.push_back(jurica_ex);
-    cout << endl;
+    //Cargar datos del archivo para popular lista
+    tiendasMex.cargarArchivo("datos_tiendas.txt");
+
+    DList<Tienda> tiendas = tiendasMex.getTiendas();
+    DList<Tienda> tiendasList(tiendas);
 
     //Variables para el ciclo
     int opcion = 0;
 
     //Variables para Tienda
     string nom;
+    string est;
     int ven;
     float gan;
     float conex;
@@ -83,30 +67,30 @@ int main(int argc, char * argv[]) {
         switch(opcion){
             //Opcion 1: Imprime tiendas
             case 1:
-                tiendasQro.imprimeTiendas(tiendasList);
-                cout << endl;
+                tiendasMex.imprimeTiendas(tiendasList);
             break;
             //Opcion 2: Imprime tiendas de mayor a menor
             //filtradas basado en el número de ventas
             case 2:
-                tiendasQro.tiendasPorVentas(tiendasList);
-                cout << endl;
+                cout << "Nombres de tiendas de mayor a menor número de ventas: " << endl;
+                tiendasMex.tiendasPorVentas(tiendasList);
             break;
             //Opcion 3: Agregar una tienda
             case 3: 
                 cout << "Nombre de la tienda: ";
                 cin >> nom;
+                cout << "Estado: ";
+                cin >> est;
                 cout << "Número de ventas: ";
                 cin >> ven;
                 cout << "Ganancias: ";
                 cin >> gan;
-                cout << "Indice de Conexión (decimales 1 - 10): ";
+                cout << "Indice de Conexión (decimal 1 - 10): ";
                 cin >> conex;
-                cout << "Indice de ICA (porcentaje completo 1-100): ";
+                cout << "Indice de ICA (porcentaje sin decimal 1-100): ";
                 cin >> ica;
-                tiendasQro.agregaTienda(nom, ven, gan, conex, ica);
+                tiendasMex.agregaTienda(nom, est, ven, gan, conex, ica);
                 cout << endl;
         }
     }
 }
-
