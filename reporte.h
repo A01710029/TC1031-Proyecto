@@ -36,6 +36,9 @@ class Reporte {
     //Para cargar datos del archivo de datos
     void cargarArchivo(string nomArchivo);
 
+    //Para guardar datos en un archivo nuevo
+    void guardarArchivo(string nomArchivo);
+
     //Para imprimir objetos (general)
     void imprimeTiendas(DList<Tienda> &list);
 
@@ -75,6 +78,29 @@ void Reporte<T>::cargarArchivo(string nomArchivo){
     }
 
     archivo.close();
+}
+
+//Función para guardar datos en un archivo nuevo
+template<class T>
+void Reporte<T>::guardarArchivo(string nomArchivo){
+  ofstream archivo(nomArchivo);
+
+  if(!archivo.is_open()){
+    cerr << "No se pudo abrir el archivo para escritura" << endl;
+    return;
+  }
+
+  DLink<Tienda> *current = tiendas.head;
+
+  while (current != 0){
+    archivo << current->value.get_nombre() << " " << current->value.get_estado() << " "
+                << current->value.get_ventas() << " " << current->value.get_ganancia() << " "
+                << current->value.get_conexion() << " " << current->value.get_ica() << endl;
+
+    current = current->next;
+  }
+
+  archivo.close();
 }
 
 //Para poder ordenar la lista

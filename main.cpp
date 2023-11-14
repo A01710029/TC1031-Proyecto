@@ -91,6 +91,10 @@ int main(int argc, char * argv[]) {
                 cin >> ica;
                 tiendasMex.agregaTienda(nom, est, ven, gan, conex, ica);
                 cout << endl;
+            //Opcion 4: Generar archivo
+            case 4: 
+                tiendasMex.guardarArchivo("reporte_tiendas.txt");
+            break;
         }
     }
 }
