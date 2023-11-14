@@ -26,11 +26,11 @@ Decidí utilizar una lista doblemente ligada (Doubly-Linked List) ya que permite
 
 ## SICT0303: Implementa acciones científicas
 
-### Implementa mecanismos para consultar información de las estructras correctos.
+### Implementa mecanismos para consultar información de las estructuras correctos.
 Estos mecanismos se implementaron en las siguientes funciones:
 
 ### Implementa mecanismos de lectura de archivos para cargar datos a las estructuras de manera correcta.
-Este mecanismo se implementó en la función cargarArchivo() en reporte.h en las líneas 57 a 77. 
+Este mecanismo se implementó en la función cargarArchivo() en reporte.h en las líneas 60 a 80. 
 
 ### Implementa mecanismos de escritura de archivos para guardar los datos de las estructuras de manera correcta.
-TBD
+Este mecanismo se implementó en la función guardarArchivo() en reporte.h en las líneas 85 a 103. Además, se agregó la funcionalidad de generar el reporte cada vez que se cierra el menú del main, en las línea 96.
