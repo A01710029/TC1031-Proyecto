@@ -38,6 +38,7 @@ class Reporte {
 
     //Para guardar datos en un archivo nuevo
     void guardarArchivo(string nomArchivo);
+    void guardarArchivo(string nomArchivo,DList<Tienda> &list);
 
     //Para imprimir objetos (general)
     void imprimeTiendas(DList<Tienda> &list);
@@ -47,6 +48,9 @@ class Reporte {
 
     //Para imprimir objetos (ordenados)
     void tiendasPorVentas(DList<Tienda> &list);
+    void tiendasPorGanancia(DList<Tienda> &list);
+    void tiendasPorConexion(DList<Tienda> &list);
+    void tiendasPorICA(DList<Tienda> &list);
 
     //Para crear objetos
     void agregaTienda(string nombre, string estado, int ventas, float ganancia, float conexion, int ica);
@@ -91,6 +95,28 @@ void Reporte<T>::guardarArchivo(string nomArchivo){
   }
 
   DLink<Tienda> *current = tiendas.head;
+
+  while (current != 0){
+    archivo << current->value.get_nombre() << " " << current->value.get_estado() << " "
+                << current->value.get_ventas() << " " << current->value.get_ganancia() << " "
+                << current->value.get_conexion() << " " << current->value.get_ica() << endl;
+
+    current = current->next;
+  }
+
+  archivo.close();
+}
+
+template<class T>
+void Reporte<T>::guardarArchivo(string nomArchivo, DList<Tienda>& list){
+  ofstream archivo(nomArchivo);
+
+  if(!archivo.is_open()){
+    cerr << "No se pudo abrir el archivo para escritura" << endl;
+    return;
+  }
+
+  DLink<Tienda> *current = list.head;
 
   while (current != 0){
     archivo << current->value.get_nombre() << " " << current->value.get_estado() << " "
@@ -187,6 +213,78 @@ void Reporte<T>::tiendasPorVentas(DList<Tienda> &list) {
   imprimeTiendasNombres(list);
 }
 
+template <class T>
+void Reporte<T>::tiendasPorGanancia(DList<Tienda> &list) {
+  int gap = list.get_size() / 2;
+
+	while (gap > 0) {
+    DLink<Tienda> *current = list.head;
+
+    while(current != 0){
+      DLink<Tienda> *cicloCurrent = current;
+      int currentIndex = list.index(cicloCurrent);
+
+      while(cicloCurrent->previous != 0 && cicloCurrent->previous->value.get_ganancia() < current->value.get_ganancia()){
+        int previousIndex = list.index(cicloCurrent->previous);
+        swap(list, currentIndex, previousIndex);
+        cicloCurrent = cicloCurrent->previous;
+      }
+      current = current->next;
+    }
+    gap = gap / 2;
+  }
+
+  imprimeTiendasNombres(list);
+}
+
+template <class T>
+void Reporte<T>::tiendasPorConexion(DList<Tienda> &list) {
+  int gap = list.get_size() / 2;
+
+	while (gap > 0) {
+    DLink<Tienda> *current = list.head;
+
+    while(current != 0){
+      DLink<Tienda> *cicloCurrent = current;
+      int currentIndex = list.index(cicloCurrent);
+
+      while(cicloCurrent->previous != 0 && cicloCurrent->previous->value.get_conexion() < current->value.get_conexion()){
+        int previousIndex = list.index(cicloCurrent->previous);
+        swap(list, currentIndex, previousIndex);
+        cicloCurrent = cicloCurrent->previous;
+      }
+      current = current->next;
+    }
+    gap = gap / 2;
+  }
+
+  imprimeTiendasNombres(list);
+}
+
+template <class T>
+void Reporte<T>::tiendasPorICA(DList<Tienda> &list) {
+  int gap = list.get_size() / 2;
+
+	while (gap > 0) {
+    DLink<Tienda> *current = list.head;
+
+    while(current != 0){
+      DLink<Tienda> *cicloCurrent = current;
+      int currentIndex = list.index(cicloCurrent);
+
+      while(cicloCurrent->previous != 0 && cicloCurrent->previous->value.get_ica() < current->value.get_ica()){
+        int previousIndex = list.index(cicloCurrent->previous);
+        swap(list, currentIndex, previousIndex);
+        cicloCurrent = cicloCurrent->previous;
+      }
+      current = current->next;
+    }
+    gap = gap / 2;
+  }
+
+  imprimeTiendasNombres(list);
+}
+
 /**
  * agregaTienda crea un objeto Tienda y lo agrega a la lista tiendas
  *
@@ -198,8 +296,8 @@ void Reporte<T>::tiendasPorVentas(DList<Tienda> &list) {
  */
 template <class T>
 void Reporte<T>::agregaTienda(string nombre, string estado, int ventas, float ganancia, float conexion, int ica) {
-    Tienda temp_new = Tienda(nombre, estado, ventas, ganancia, conexion, ica);
-    tiendas.insertion(temp_new);
+  Tienda temp_new = Tienda(nombre, estado, ventas, ganancia, conexion, ica);
+  tiendas.insertion(temp_new);
 }
 
 #endif // REPORTE_H_

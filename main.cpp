@@ -25,8 +25,11 @@ void menu(){
     cout << "Menu:\n";
     cout << "1. Imprime las tiendas guardadas \n";
     cout << "2. Imprime las tiendas de mayor a menor ventas \n";
-    cout << "3. Agrega una tienda \n";
-    cout << "4. Salir \n";
+    cout << "3. Imprime las tiendas de mayor a menor ganancia \n";
+    cout << "4. Imprime las tiendas de mayor a menor índice de conexión \n";
+    cout << "5. Imprime las tiendas de mayor a menor índice ICA \n";
+    cout << "6. Agrega una tienda \n";
+    cout << "7. Salir \n";
 
     cout << endl;
 }
@@ -56,7 +59,7 @@ int main(int argc, char * argv[]) {
     menu();
 
     //ciclo para que el menu funcione hasta que se escoga salir
-    while(opcion < 4 && opcion > -1){
+    while(opcion < 8 && opcion > -1){
 
         cout << "Seleccione un número: ";
 
@@ -74,9 +77,31 @@ int main(int argc, char * argv[]) {
             case 2:
                 cout << "Nombres de tiendas de mayor a menor número de ventas: " << endl;
                 tiendasMex.tiendasPorVentas(tiendasList);
+                tiendasMex.guardarArchivo("reporte_ventas.txt", tiendasList);
             break;
-            //Opcion 3: Agregar una tienda
-            case 3: 
+            //Opcion 3: Imprime tiendas de mayor a menor
+            //filtradas basado en el número de ganancia
+            case 3:
+                cout << "Nombres de tiendas de mayor a menor número de ganancia: " << endl;
+                tiendasMex.tiendasPorGanancia(tiendasList);
+                tiendasMex.guardarArchivo("reporte_ganancia.txt", tiendasList);
+            break;
+            //Opcion 4: Imprime tiendas de mayor a menor
+            //filtradas basado en el indice de conexion
+            case 4:
+                cout << "Nombres de tiendas de mayor a menor índice de conexión: " << endl;
+                tiendasMex.tiendasPorConexion(tiendasList);
+                tiendasMex.guardarArchivo("reporte_conexion.txt", tiendasList);
+            break;
+            //Opcion 5: Imprime tiendas de mayor a menor
+            //filtradas basado en el indice ICA
+            case 5:
+                cout << "Nombres de tiendas de mayor a menor índice ICA: " << endl;
+                tiendasMex.tiendasPorICA(tiendasList);
+                tiendasMex.guardarArchivo("reporte_ica.txt", tiendasList);
+            break;
+            //Opcion 6: Agregar una tienda
+            case 6: 
                 cout << "Nombre de la tienda: ";
                 cin >> nom;
                 cout << "Estado: ";
@@ -91,8 +116,10 @@ int main(int argc, char * argv[]) {
                 cin >> ica;
                 tiendasMex.agregaTienda(nom, est, ven, gan, conex, ica);
                 cout << endl;
-            //Opcion 4: Generar archivo
-            case 4: 
+            break;
+            //Opcion 7: Generar archivo de todas las tiendas (sin sortear)
+            case 7: 
+                cout << "Reporte de todas las listas generado." << endl;
                 tiendasMex.guardarArchivo("reporte_tiendas.txt");
             break;
         }
