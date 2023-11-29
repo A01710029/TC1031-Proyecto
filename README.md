@@ -3,7 +3,7 @@
 ## Archivo de Tiendas Starbucks
 Este proyecto se basa en el sistema de evaluación utilizado por Starbucks para sus distintas tiendas dentro de la República Mexicana, en el que se considera el número de ventas por mes, el número de ganancia generada por mes, el Índice de Conexión (un decimal entre 1 y 10 que representa la calidad de servicio al cliente) y el Índice de Inocuidad y Calidad Alsea, o ICA (un porcentaje completo entre 1 y 100 que representa la calidad de limpieza y seguridad). 
 
-El programa permite, a través de un menú, imprimir las tiendas guardadas, imprimir las tiendas basado en su número de ventas, número de ganancia, índice de conexión e índice de ICA, agregar más tiendas y generar un reporte general de todas las tiendas. 
+El programa permite, a través de un menú, imprimir las tiendas guardadas, imprimir las tiendas basado en su número de ventas, número de ganancia, índice de conexión e índice de ICA, imprimir todas las tiendas en un estado, imprimir todas las tiendas que están por encima o por debajo de una meta definida por el usuario para cualquiera de estos atributos, agregar más tiendas y generar un reporte general de todas las tiendas. 
 
 ## SICT0301: Evalúa los componentes
 
