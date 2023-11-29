@@ -85,10 +85,11 @@ DList<T>::DList(const DList<T>& other) {
     }
 }
 
-//Constructor y destructor
+//Constructor
 template <class T>
 DList<T>::DList() : head(0), tail(0), size(0) {}
 
+//Destructor
 template <class T>
 DList<T>::~DList() {
 	clear();
