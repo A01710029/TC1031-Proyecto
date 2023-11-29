@@ -59,11 +59,11 @@ int main(int argc, char * argv[]) {
     float conex;
     int ica;
 
+    //Imprime menu
+    menu();
+
     //Ciclo para que el menu funcione hasta que se escoga salir
     while(opcion < 10 && opcion > -1){
-        //Imprime menu
-        menu();
-        
         cout << "Seleccione un número: ";
 
         //Pedir al usuario una opción
