@@ -2,7 +2,7 @@
 * Proyecto Archivo de Casos
 * Paulina Almada Martínez
 * A01710029
-* 9/18/2023
+* 11/28/2023
 * Esta clase define el objeto Tienda que contiene la
 * información sobre las tiendas Starbucks
 */
@@ -36,7 +36,7 @@ class Tienda {
     Tienda(string nom, string est, int ven, float gan, float conex, int ica_num): \
     nombre(nom), estado(est), ventas(ven), ganancia(gan), conexion(conex), ica(ica_num) {};
 
-    //Metodos
+    //Métodos
     string get_nombre(){
         return nombre;
     }
@@ -60,9 +60,7 @@ class Tienda {
     int get_ica(){
         return ica;
     }
-
-    //possibly add setters to modify (most) values ?
-
+    
     //Otras funciones
     string toStringTotal();
     string toStringNombres();

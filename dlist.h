@@ -2,7 +2,7 @@
 * Proyecto Archivo de Tiendas Starbucks
 * Paulina Almada Martínez
 * A01710029
-* 9/18/2023
+* 11/28/2023
 * Esta clase define las funciones necesarias para manejar
 * la estructura de las listas doblemente ligadas.
 */
@@ -77,7 +77,6 @@ DList<T>::DList(const DList<T>& other) {
     tail = nullptr;
     size = 0;
     
-    // Perform a deep copy of the list
     DLink<T> *current = other.head;
     
     while (current != nullptr) {
@@ -157,7 +156,6 @@ string DList<T>::toString() const {
 	return aux.str();
 }
 
-// Insertar un elemento 
 template <class T>
 void DList<T>::insertion(T val){
     DLink<T> *newLink;
@@ -174,8 +172,6 @@ void DList<T>::insertion(T val){
 	size++;
 }
 
-// Encontrar el elemento y devolver su posición
-// Devolver -1 si no se encuentra
 template <class T>
 T DList<T>::search(T val){
     DLink<T> *p;
@@ -192,7 +188,6 @@ T DList<T>::search(T val){
 	return -1;
 }
 
-// Reemplazar un elemento en una posición específica con el valor dado
 template <class T>
 void DList<T>::update(T pos, T val){
     DLink<T> *p;
@@ -208,8 +203,7 @@ void DList<T>::update(T pos, T val){
 	}
 }
 
-// Borrar un elemento segun su posición
-// Regresar el valor numérico eliminado
+
 template <class T>
 T DList<T>::deleteAt(T pos){ 
     T  val;
@@ -244,7 +238,6 @@ T DList<T>::deleteAt(T pos){
 	return val;
 }
 
-//Regresar la posición de un valor en la lista
 template <class T>
 int DList<T>::index(DLink<T> *element) const {
   int index = 0;
