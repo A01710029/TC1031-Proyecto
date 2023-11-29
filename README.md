@@ -14,7 +14,12 @@ El Shell Sort tiene una complejidad de tiempo promedio de O(nlog n), ya que tien
 Las listas doblemente ligadas (Doubly-Linked Lists) tienen una complejidad promedio tanto de tiempo como de memoria de O(n). Al tener apuntadores tanto para el elemento anterior y posterior para cada elemento de la lista, es particularmente flexible para reordenar la lista al poder mover nodos en ambas direcciones. Pero, se debe notar que al tener dos apuntadores por cada nodo, se requiere una mayor cantidad de memoria.
 
 ### Hace un análisis de complejidad correcto y completo para todos los demás componentes del programa y determina la complejidad final del programa.
-TBD
+1) cargarArchivo(): 
+2) guardarArchivo(): 
+3) buscarTiendasEstado(): 
+4) buscarTiendasPorMeta():
+
+Complejidad Final: 
 
 ## SICT0302: Toma decisiones
 
