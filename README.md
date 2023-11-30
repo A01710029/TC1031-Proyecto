@@ -11,15 +11,15 @@ El programa permite, a través de un menú, imprimir las tiendas guardadas, impr
 El Shell Sort tiene una complejidad de tiempo promedio de O(nlog n), ya que tiene dos ciclos, pero el ciclo exterior sirve como el límite del ciclo interior. Además, la brecha que se analiza se reduce a la mitad cada vez que corre el algoritmo. Shell Sort tiene una complejidad de espacio de O(1).
 
 ### Hace un análisis de complejidad correcto y completo para todas las estructuras de datos y cada uno de sus usos en el programa.
-Las listas doblemente ligadas (Doubly-Linked Lists) tienen una complejidad promedio tanto de tiempo como de memoria de O(n). Al tener apuntadores tanto para el elemento anterior y posterior para cada elemento de la lista, es particularmente flexible para reordenar la lista al poder mover nodos en ambas direcciones. Pero, se debe notar que al tener dos apuntadores por cada nodo, se requiere una mayor cantidad de memoria.
+Las listas doblemente ligadas (Doubly-Linked Lists) tienen una complejidad promedio tanto de tiempo como de memoria de O(n). Al tener apuntadores tanto para el elemento anterior y posterior para cada elemento de la lista, es particularmente flexible para reordenar elementos al poder mover nodos en ambas direcciones. Pero, se debe notar que al tener dos apuntadores por cada nodo, se requiere una mayor cantidad de memoria.
 
 ### Hace un análisis de complejidad correcto y completo para todos los demás componentes del programa y determina la complejidad final del programa.
-1) cargarArchivo(): 
-2) guardarArchivo(): 
-3) buscarTiendasEstado(): 
-4) buscarTiendasPorMeta():
+1) cargarArchivo() en reporte.h (líneas 79 a 100): al tener un solo loop que recorre todos los datos del archivo y el resto de los elementos de la función son simples y constantes, tiene una complejidad de tiempo de O(n) y complejidad de espacio de O(1). 
+2) guardarArchivo() en reporte.h (líneas 111 a 130): tiene una estructura muy similar a cargarArchivo, por lo que tiene la misma complejidad de tiempo O(n) y complejidad de espacio de O(1).
+3) buscarTiendasEstado() en reporte.h (en líneas 381 a 399): al tener un ciclo while que tiene como límite el tamaño de la lista doblemente ligada, que en el peor caso va a recorrer todos los elementos de la lista, tiene una complejidad de tiemp de O(n) y complejidad de espacio de O(1). 
+4) buscarTiendasPorMeta() en reporte.h (en líneas 414 a 452): tiene una estructura similar a buscarTiendasEstado, en la que, aunque tienen ciclos de decisiones dentro de la función, están definidas y limitadas por el ciclo while, que en el peor caso recorre la lista entera, por lo que también tiene una complejidad de tiempo de O(n) y complejidad de espacio de O(1). 
 
-Complejidad Final: 
+Complejidad Final: ya que las funciones de ordenamiento, dependientes de un Shell Sort, son las más significativas del programa, siendo 4 de 10 funciones de menú, y el resto de las funciones claves del programa tienen complejidades lineales o constantes, la complejidad final se puede definir como O(nlog n), la complejidad del algoritmo de ordenamiento implementado. 
 
 ## SICT0302: Toma decisiones
 
