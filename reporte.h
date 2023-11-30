@@ -189,6 +189,13 @@ void Reporte<T>::swap(DList<T> &list, int i, int j) {
   q->value = temp;
 }
 
+/**
+ * getTiendas regresa la lista doblemente ligada de tiendas
+ * guardadas en la instancia de la lista dentro de reporte.h
+ * 
+ * @param
+ * @return
+ */
 template <class T>
 DList<Tienda> Reporte<T>::getTiendas() const{
   return tiendas;
